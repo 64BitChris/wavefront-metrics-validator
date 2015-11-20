@@ -1,11 +1,14 @@
 package com.yammer.metrics.pipeline;
 
+import org.springframework.stereotype.Component;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Validate the Wavefront metrics as best as we can.
  */
+@Component
 public class WavefrontValidator implements MetricsValidator {
 
     private final static String METRIC_NAME_PATTERN = "^\\w+[\\w+\\-]+\\.{1}[\\w\\-\\.]+";
@@ -15,8 +18,6 @@ public class WavefrontValidator implements MetricsValidator {
     private final static String HOSTNAME_PATTERN = "host(name)?\\=\\w+[\\w\\-\\.]+";
     private final static String END = "$";
 
-
-//    private final static String regex = "^\\p{Alpha}+\\..*";
     private final static String regex = METRIC_NAME_PATTERN + SINGLE_SPACE + METRIC_VALUE_PATTERN + SINGLE_SPACE + TIMESTAMP_PATTERN + SINGLE_SPACE + HOSTNAME_PATTERN + END;
     private final static Pattern pattern = Pattern.compile(regex);
 
