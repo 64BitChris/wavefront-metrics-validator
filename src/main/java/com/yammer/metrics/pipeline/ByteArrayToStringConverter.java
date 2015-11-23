@@ -17,7 +17,6 @@ public class ByteArrayToStringConverter implements Converter<byte[], String> {
 
     public String convert(byte[] bytes) {
         try {
-            System.out.println("Converting....");
             return new String(bytes, this.charSet);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

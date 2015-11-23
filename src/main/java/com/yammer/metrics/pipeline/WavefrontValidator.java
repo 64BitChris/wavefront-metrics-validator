@@ -14,7 +14,7 @@ public class WavefrontValidator implements MetricsValidator {
     private final static String METRIC_NAME_PATTERN = "^\\w+[\\w+\\-]+\\.{1}[\\w\\-\\.]+";
     private final static String SINGLE_SPACE = " {1}";
     private final static String METRIC_VALUE_PATTERN = "\\-?\\d+(\\.\\d*([Ee]\\-?)?\\d*)?";
-    private final static String TIMESTAMP_PATTERN = "timestamp=\\d{10}";
+    private final static String TIMESTAMP_PATTERN = "\\d{10}";
     private final static String HOSTNAME_PATTERN = "host(name)?\\=\\w+[\\w\\-\\.]+";
     private final static String END = "$";
 
