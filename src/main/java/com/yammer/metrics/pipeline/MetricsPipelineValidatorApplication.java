@@ -15,7 +15,7 @@ import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.config.IntegrationConverter;
 import org.springframework.integration.ip.tcp.TcpInboundGateway;
 import org.springframework.integration.ip.tcp.connection.AbstractServerConnectionFactory;
-import org.springframework.integration.ip.tcp.connection.TcpNetServerConnectionFactory;
+import org.springframework.integration.ip.tcp.connection.TcpNioServerConnectionFactory;
 import org.springframework.integration.ip.tcp.serializer.ByteArrayLfSerializer;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -98,7 +98,7 @@ public class MetricsPipelineValidatorApplication {
 
     @Bean
     public AbstractServerConnectionFactory connectionFactory() {
-        final TcpNetServerConnectionFactory factory = new TcpNetServerConnectionFactory(2878);
+        final TcpNioServerConnectionFactory factory = new TcpNioServerConnectionFactory(2878);
         factory.setDeserializer(new ByteArrayLfSerializer());
         factory.setSingleUse(false);
         return factory;
